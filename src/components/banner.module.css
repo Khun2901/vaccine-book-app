@@ -1,0 +1,30 @@
+.banner {
+    display: block;
+    padding: 5px;
+    margin: 0;
+    width: 100vw;
+    height: 60vh;
+    position: relative;
+}
+
+.bannerText {
+    position: relative;
+    top: 125px;
+    right: 25%;
+    z-index: 20px;
+    text-align: center;
+    font-family: 'comic sans ms';
+}
+
+.bannerText h1 {
+    font-size: 3.5em;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.bannerText h2 {
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
