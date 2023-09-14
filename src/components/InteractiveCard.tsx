@@ -3,6 +3,8 @@
 import React from "react"
 
 export default function InteractiveCard( {children} : {children: React.ReactNode} ) {
+
+
     function onMouseAction(event: React.SyntheticEvent) {
         if(event.type == 'mouseover'){
             event.currentTarget.classList.remove('shadow-lg')
@@ -24,5 +26,6 @@ export default function InteractiveCard( {children} : {children: React.ReactNode
         onMouseOut={(e) => onMouseAction(e)}>
             {children}
         </div>
+       
     )
 }
