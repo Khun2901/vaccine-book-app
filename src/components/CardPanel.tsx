@@ -3,6 +3,7 @@
 import { useReducer, useState } from 'react'
 import { Rating, Typography } from '@mui/material'
 import VaccineCard from './VaccineCard'
+import Link from 'next/link'
 
 export default function CardPanel() {
 
@@ -33,18 +34,28 @@ export default function CardPanel() {
 
     const [ratingList, dispatchRating] = useReducer(ratingReducer, rating)
 
+    /**
+     * MOck Data for Demonstration Only!
+     */
+
+    const mockHospitalRepo = [{hid:"001", name:'Chulalongkorn Hospital', img:'/img/chula.jpg'},
+        {hid:"002", name:'Thammasat Hospital', img:'/img/thammasat.jpg'},
+        {hid:"003", name:'Rajavithi Hospital', img:'/img/rajavithi.jpg'}]
+
     return (
         <div>
-            <div className='m-[40px] flex flex-wrap flex-row justify-around content-around'>
-                <VaccineCard hospitalName='Chulalongkorn Hospital' imgSrc='/img/chula.jpg' rate={Number(rating.get('Chulalongkorn Hospital'))}
-                onRating={(hospital:string, rating: number) => dispatchRating({type: 'add', hospitalName: hospital, rate: rating})} 
-                />
-                <VaccineCard hospitalName='Thammasat Hospital' imgSrc='/img/thammasat.jpg' rate={Number(rating.get('Thammasat Hospital'))}
-                onRating={(hospital:string, rating: number) => dispatchRating({type: 'add', hospitalName: hospital, rate: rating})}
-                />
-                <VaccineCard hospitalName='Rajavithi Hospital' imgSrc='/img/rajavithi.jpg' rate={Number(rating.get('Rajavithi Hospital'))}
-                onRating={(hospital:string, rating: number) => dispatchRating({type: 'add', hospitalName: hospital, rate: rating})}
-                />
+            <div className='m-[30px] flex flex-wrap flex-row justify-around content-around'>
+                {
+                    mockHospitalRepo.map((hospitalItem)=>(
+                        <Link href={`/hospital/${hospitalItem.hid}`} className='w-1/4'>
+                        <VaccineCard hospitalName={hospitalItem.name} imgSrc={hospitalItem.img} rate={Number(rating.get(hospitalItem.name))}
+                        onRating={(hospital:string, rating: number) => dispatchRating({type: 'add', hospitalName: hospital, rate: rating})}
+                        /> 
+                        </Link>
+                        
+                        ) 
+                    )
+                }
             </div>
 
             <div className='w-full text-xl text-black font-semibold p-[10px]'>Rating List: {ratingList.size}</div>

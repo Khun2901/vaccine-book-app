@@ -24,7 +24,8 @@ export default function VaccineCard( {hospitalName, imgSrc, rate, onRating} :
             <div className='mt-[10px] ml-6'>
                 <Typography className='w-full h-[20%] text-black font-bold' component="legend">Rating:</Typography>
                 <Rating name="hospital-rating" value={Number(rate)}
-                onChange={(e, newValue) => {e.stopPropagation(); onRating(hospitalName, newValue)}}
+                onChange={(e, newValue) => {onRating(hospitalName, newValue)}}
+                onClick={(e)=>(e.stopPropagation())}
                 />
             </div>
 
