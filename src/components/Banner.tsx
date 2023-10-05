@@ -16,7 +16,7 @@ export default function Banner() {
             alt='cover'
             fill={true}
             objectFit='cover'/>
-            <div className='relative text-center mt-[150px] mr-[45%] z-20'>
+            <div className='relative text-center text-white mt-[150px] mr-[45%] z-20'>
                 <h1 className='text-6xl font-bold font-sans mb-6'>Secure Your Future</h1>
                 <h2 className='text-3xl font-medium font-serif'>Get Vaccinated Today!</h2>
             </div>
