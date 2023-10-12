@@ -6,7 +6,7 @@ import InteractiveCard from './InteractiveCard'
 import { Rating, Typography } from '@mui/material'
 import { useState } from 'react'
 
-export default function VaccineCard( {hospitalName, imgSrc, rate, onRating} : 
+export default function HospitalCard( {hospitalName, imgSrc, rate, onRating} : 
     {hospitalName: string, imgSrc: string, rate: number|null, onRating: Function} ) {
         
     return (

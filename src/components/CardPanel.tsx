@@ -2,7 +2,7 @@
 
 import { useReducer, useState } from 'react'
 import { Rating, Typography } from '@mui/material'
-import VaccineCard from './VaccineCard'
+import HospitalCard from './HospitalCard'
 import Link from 'next/link'
 
 export default function CardPanel() {
@@ -48,7 +48,7 @@ export default function CardPanel() {
                 {
                     mockHospitalRepo.map((hospitalItem)=>(
                         <Link href={`/hospital/${hospitalItem.hid}`} className='w-1/4'>
-                        <VaccineCard hospitalName={hospitalItem.name} imgSrc={hospitalItem.img} rate={Number(rating.get(hospitalItem.name))}
+                        <HospitalCard hospitalName={hospitalItem.name} imgSrc={hospitalItem.img} rate={Number(rating.get(hospitalItem.name))}
                         onRating={(hospital:string, rating: number) => dispatchRating({type: 'add', hospitalName: hospital, rate: rating})}
                         /> 
                         </Link>
