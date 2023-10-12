@@ -1,26 +1,42 @@
+import getHospitals from "@/libs/getHospitals"
 import Image from "next/image"
+import getHospital from "@/libs/getHospital"
 
-export default function HospitalDetailPage({params}: {params: {hid: string}}) {
+export default async function HospitalDetailPage({params}: {params: {hid: string}}) {
 
     /**
      * Mock Data for Demonstration Only!
      */
 
-    const mockHospitalRepo = new Map()
-    mockHospitalRepo.set("001", {name:'Chulalongkorn Hospital', img:'/img/chula.jpg'})
-    mockHospitalRepo.set("002", {name:'Thammasat Hospital', img:'/img/thammasat.jpg'})
-    mockHospitalRepo.set("003", {name:'Rajavithi Hospital', img:'/img/rajavithi.jpg'})
+    // const mockHospitalRepo = new Map()
+    // mockHospitalRepo.set("001", {name:'Chulalongkorn Hospital', img:'/img/chula.jpg'})
+    // mockHospitalRepo.set("002", {name:'Thammasat Hospital', img:'/img/thammasat.jpg'})
+    // mockHospitalRepo.set("003", {name:'Rajavithi Hospital', img:'/img/rajavithi.jpg'})
+
+    const hospitalDetail = await getHospital(params.hid)
 
     return (
-        <main className="text-black text-center font-medium text-lg mx-10">
-            <div className="flex flex-row my-10">
-                <Image src={(mockHospitalRepo.get(params.hid)).img}
+        <main>
+            <div className="flex flex-row mx-20 my-10">
+                <Image src={hospitalDetail.data.picture}
                 alt="Hospital Picture"
                 width={0} height={0} sizes="100vw"
                 className="rounded-lg w-[30%] shadow-xl"
                 />
-            <div className="text-xl text-bold font-serif mx-10">{mockHospitalRepo.get(params.hid).name}</div>
+                <div>
+                    <h1 className="text-2xl font-bold mx-20 my-4">{hospitalDetail.data.name}</h1>
+                    <div className="text-xl text-left font-normal mx-20">
+                        <div className="my-4">Address: {hospitalDetail.data.address}</div>
+                        <div className="my-4">District: {hospitalDetail.data.district}</div>
+                        <div className="my-4">Province: {hospitalDetail.data.province}</div>
+                        <div className="my-4">Postal Code: {hospitalDetail.data.postalcode}</div>
+                        <div className="my-4">Tel: {hospitalDetail.data.tel}</div>
+                    </div>
+                </div>
+                
+                
             </div>
+    
         </main>
     )
 }

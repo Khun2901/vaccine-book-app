@@ -7,7 +7,7 @@ import { Rating, Typography } from '@mui/material'
 import { useState } from 'react'
 
 export default function HospitalCard( {hospitalName, imgSrc, rate, onRating} : 
-    {hospitalName: string, imgSrc: string, rate: number|null, onRating: Function} ) {
+    {hospitalName: string, imgSrc: string, rate?: number|null, onRating?: Function} ) {
         
     return (
         <InteractiveCard>
@@ -22,11 +22,15 @@ export default function HospitalCard( {hospitalName, imgSrc, rate, onRating} :
                 <h2 className='text-black text-center text-2xl mt-4 mb-8 font-bold font-sans'>{hospitalName}</h2>
             </div>
             <div className='mt-[10px] ml-6'>
-                <Typography className='w-full h-[20%] text-black font-bold' component="legend">Rating:</Typography>
-                <Rating name="hospital-rating" value={Number(rate)}
-                onChange={(e, newValue) => {onRating(hospitalName, newValue)}}
-                onClick={(e)=>(e.stopPropagation())}
-                />
+                {
+                    (onRating && rate)? <>
+                    <Typography className='w-full h-[20%] text-black font-bold' component="legend">Rating:</Typography>
+                    <Rating name="hospital-rating" value={Number(rate)}
+                    onChange={(e, newValue) => {onRating(hospitalName, newValue)}}
+                    onClick={(e)=>(e.stopPropagation())}
+                    /> </>: ''
+                }
+                
             </div>
 
         </InteractiveCard>
