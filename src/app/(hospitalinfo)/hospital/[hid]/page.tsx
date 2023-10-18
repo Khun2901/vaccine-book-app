@@ -4,15 +4,6 @@ import getHospital from "@/libs/getHospital"
 
 export default async function HospitalDetailPage({params}: {params: {hid: string}}) {
 
-    /**
-     * Mock Data for Demonstration Only!
-     */
-
-    // const mockHospitalRepo = new Map()
-    // mockHospitalRepo.set("001", {name:'Chulalongkorn Hospital', img:'/img/chula.jpg'})
-    // mockHospitalRepo.set("002", {name:'Thammasat Hospital', img:'/img/thammasat.jpg'})
-    // mockHospitalRepo.set("003", {name:'Rajavithi Hospital', img:'/img/rajavithi.jpg'})
-
     const hospitalDetail = await getHospital(params.hid)
 
     return (
@@ -32,11 +23,8 @@ export default async function HospitalDetailPage({params}: {params: {hid: string
                         <div className="my-4">Postal Code: {hospitalDetail.data.postalcode}</div>
                         <div className="my-4">Tel: {hospitalDetail.data.tel}</div>
                     </div>
-                </div>
-                
-                
-            </div>
-    
+                </div>           
+            </div>   
         </main>
     )
 }
