@@ -19,9 +19,8 @@ export default async function TopMenuBar() {
                     session? <Link href="api/auth/signout"><div className='mx-0 px-[50px] text-center 
                     text-cyan-600 font-bold text-xl hover:text-cyan-800'>
                         Sign-Out</div></Link>
-                        :<Link href="api/auth/signin"><div className='mx-0 px-[50px] flex items-center 
-                        absolute text-center left-0 h-full text-cyan-600 font-bold text-xl 
-                        hover:text-cyan-800'>
+                        :<Link href="api/auth/signin"><div className='mx-0 px-[50px] text-center
+                        text-cyan-600 font-bold text-xl hover:text-cyan-800'>
                             Sign-In</div></Link>
                 }
                 <TopMenuItem title="MyBooking" pageRef="/mybooking" />
