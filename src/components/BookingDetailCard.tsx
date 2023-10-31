@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux"
 import { removeBooking } from "@/redux/features/bookSlice"
 
 export default function BookingDetailCard() {
-    const bookItems = useAppSelector((state) => state.bookSlice.bookingItems)
+    const bookItems = useAppSelector((state) => state.reduxPersistedReducer.bookSlice.bookingItems)
     const dispatch = useDispatch<AppDispatch>()
     return(
         <div>
