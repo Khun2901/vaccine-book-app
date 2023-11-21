@@ -14,6 +14,7 @@ export default async function TopMenuBar() {
             <Image src={'/img/logo.png'} className="h-full w-auto" 
             alt="logo" width={0} height={0} sizes="100vh"/>
             <TopMenuItem title="Booking" pageRef="/booking"/>
+            <TopMenuItem title="Hospitals" pageRef="/hospital" />
             <div className="flex flex-row items-center absolute left-0 h-full">    
                 {
                     session? <Link href="api/auth/signout"><div className='mx-0 px-[50px] text-center 

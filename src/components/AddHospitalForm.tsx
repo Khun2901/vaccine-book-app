@@ -49,7 +49,7 @@ export default async function AddHospitalForm() {
             <div className="text-xl text-cyan-800 my-4 font-bold">Add New Hospital.</div>
             <div className="flex items-center w-auto my-2 mx-4">
                 <label className="block text-gray-700 pr-4 font-medium" htmlFor="name">Name:</label>
-                <input type="text" required id="name" name="name" placeholder="Hospital Name"
+                <input type="text" required id="name" name="name" placeholder="Company Name"
                 className="bg-white border-2 border-gray-200 rounded w-full p-2 text-gray-700
                 focus:outline-none focus:border-cyan-600" />
             </div>
